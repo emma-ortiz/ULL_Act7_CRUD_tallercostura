@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Profesor</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { max-width: 400px; }
+        label { display: block; margin: 10px 0 5px; }
+        input { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { background-color: #007BFF; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Editar Profesor</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Nombre:</label>
+        <input type="text" name="nombre" value="{{ profesor.nombre }}" required>
+
+        <label>Apellido Paterno:</label>
+        <input type="text" name="apellido_paterno" value="{{ profesor.apellido_paterno }}" required>
+
+        <label>Apellido Materno:</label>
+        <input type="text" name="apellido_materno" value="{{ profesor.apellido_materno }}" required>
+
+        <label>Genero:</label>
+        <input type="text" name="genero" value="{{ profesor.genero }}" required>
+
+        <label>Correo:</label>
+        <input type="email" name="correo" value="{{ profesor.correo }}" required>
+
+        <button type="submit">Actualizar</button>
+    </form>
+    <a href="/">Volver al listado</a>
+</body>
+</html>
